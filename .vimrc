@@ -87,7 +87,7 @@ if has("gui_running") || has("gui_macvim")
 	colorscheme yytextmate
 	let g:colors_name="yytextmate"
 else
-	colorscheme light 
+	colorscheme yytextmate
 endif
 
 if MySys() == "mac"
@@ -124,7 +124,7 @@ if has("gui_macvim")
 	let macvim_skip_cmd_opt_movement = 1
 	let macvim_hig_shift_movement = 1
 
-	set transparency=18
+	set transparency=10
 	set guioptions-=T "egmrt
 	"set guioptions+=b 
 	
@@ -368,3 +368,26 @@ let VCSCommandSVKExec='disabled no such executable'
 "let g:NeoComplCache_EnableUnderbarCompletion = 1 
 
 "autocmd BufNewFile *.py 0r ~/.vim/templates/sample.py
+"style 1 
+"syn match 4spa /\(\s\{4}\|\n\)\&\%1v.*\%2v/ 
+"syn match 8spa /\s\{4}\&\%5v.*\%6v/ 
+"syn match 12spa /\s\{4}\&\%9v.*\%10v/ 
+"syn match 16spa /\s\{4}\&\%13v.*\%14v/ 
+"syn match 20spa /\s\{4}\&\%17v.*\%18v/ 
+"syn match 24spa /\s\{4}\&\%21v.*\%22v/ 
+"style 2 
+syn match 4spa /\(\s\|\n\)\&\%4v.*\%5v/ 
+syn match 8spa /\s\&\%8v.*\%9v/ 
+syn match 12spa /\s\&\%12v.*\%13v/ 
+syn match 16spa /\s\&\%16v.*\%17v/ 
+syn match 20spa /\s\&\%20v.*\%21v/ 
+syn match 24spa /\s\&\%24v.*\%25v/ 
+syn match 80spa /.\&\%80v.*\%81v/ 
+"indent color 
+hi 4spa guibg = #771144 
+hi 8spa guibg = #22464A 
+hi 12spa guibg = #344333 
+hi 16spa guibg = #777444 
+hi 20spa guibg = #555777 
+hi 24spa guibg = #cc9966 
+hi 80spa guibg = #ff1111 

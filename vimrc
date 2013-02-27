@@ -92,14 +92,14 @@ else
 endif
 
 if MySys() == "mac"
-	set guifont=TextMate_Regular:h13
-	set guifontwide=Hei_Regular:h13
+	set guifont=Menlo:h12
+	set guifontwide=Hei_Regular:h12
 elseif MySys() == "linux"
 	set guifont=Monospace
 endif
 
 set anti
-set linespace=2 
+set linespace=1
 set number
 set numberwidth=4
 set equalalways
@@ -125,7 +125,7 @@ if has("gui_macvim")
 	let macvim_skip_cmd_opt_movement = 1
 	let macvim_hig_shift_movement = 1
 
-	set transparency=30
+	set transparency=10
 	set guioptions-=T "egmrt
 	"set guioptions+=b 
 	
