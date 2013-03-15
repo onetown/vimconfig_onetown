@@ -77,7 +77,7 @@ set nowrap
 set wildmenu
 set matchpairs=(:),{:},[:],<:>
 set whichwrap=b,s,<,>,[,]
-set foldmethod=marker
+set foldmethod=indent
 set fdm=marker
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,6 +165,7 @@ autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 
 
@@ -330,6 +331,9 @@ let g:tlist_javascript_settings = 'javascript;f:function;c:class;o:object;m:meth
 " netrw setting
 let g:netrw_winsize = 30
 "nmap <silent> <leader>fe :Sexplore!<cr>
+"
+let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+let g:pydiction_menu_height = 20
 
 " NERDTree setting
 nmap <silent> <leader>nt :NERDTree<cr>
