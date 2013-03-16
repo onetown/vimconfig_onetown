@@ -158,7 +158,7 @@ autocmd BufRead * :lcd! %:p:h
 autocmd BufNewFile,BufRead *.vm setlocal ft=html
 
 " language support
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 textwidth=79
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 autoindent smartindent smarttab textwidth=300
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " for AutoComplPop
@@ -362,6 +362,15 @@ let NERDShutUp=1
 let g:NERDCommenterLeader="<leader>n" " change NERD_commenter.vim
 
 let VCSCommandSVKExec='disabled no such executable'
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
+
+let Tlist_Auto_Open = 1
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Use_Horiz_window =1
+
 
 " Use neocomplcache.
 "let g:NeoComplCache_EnableAtStartup = 1
@@ -374,4 +383,5 @@ let VCSCommandSVKExec='disabled no such executable'
 
 augroup filetypedetect
 	au! BufNewFile,BufRead *.as setf actionscript
+	au! BufNewFile,BufRead *.py setf python
 augroup END

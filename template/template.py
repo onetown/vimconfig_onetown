@@ -1,7 +1,7 @@
 #!/usr/bin/env python 
 # -*- coding: UTF-8 -*-
 #
-# Copyright 2011 gboard.cc
+# Copyright 2013 SOABER, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
