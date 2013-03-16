@@ -319,14 +319,16 @@ let Tlist_Compact_Format=1
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 30
 let Tlist_Inc_Winwidth = 0
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 let g:tlist_javascript_settings = 'javascript;f:function;c:class;o:object;m:method;s:string;a:array;n:constant'
 
 " winManager setting
-"let g:winManagerWindowLayout="BufExplorer,FileExplorer|taglist" 
-"let g:winManagerWidth = 30
+let g:winManagerWindowLayout="FileExplorer,BufExplorer|TagList" 
+let g:winManagerWidth = 30
 "let g:defaultExplorer = 0
-"nmap <silent> <leader>wm :WMToggle<cr> 
+nmap <silent> <F9> :WMToggle<cr>
+nmap <silent> <leader>wm :WMToggle<cr> 
 
 " netrw setting
 let g:netrw_winsize = 30
@@ -336,7 +338,8 @@ let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height = 20
 
 " NERDTree setting
-nmap <silent> <leader>nt :NERDTree<cr>
+"nmap <silent> <leader>nt :NERDTree<cr>
+nmap <silent> <leader>nt :WMToggle<cr>
 
 " Most Recently Used (MRU)
 nmap <silent> <leader>r :MRU<cr>
@@ -362,14 +365,6 @@ let NERDShutUp=1
 let g:NERDCommenterLeader="<leader>n" " change NERD_commenter.vim
 
 let VCSCommandSVKExec='disabled no such executable'
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-
-let Tlist_Auto_Open = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Use_Horiz_window =1
 
 
 " Use neocomplcache.
