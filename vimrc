@@ -323,12 +323,23 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 let g:tlist_javascript_settings = 'javascript;f:function;c:class;o:object;m:method;s:string;a:array;n:constant'
 
-" winManager setting
-let g:winManagerWindowLayout="FileExplorer,BufExplorer|TagList" 
-let g:winManagerWidth = 30
+" winManager setting 
+let g:NERDTree_title="[NERD Tree]" 
+let g:winManagerWindowLayout="NERDTree|TagList,BufExplorer" 
+let g:winManagerWidth = 30 
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+function! NERDTree_IsValid()
+    return 1
+endfunction 
+"nmap <silent> <leader>wm :WMToggle<cr> 
+"nmap <silent> <leader>nt :WMToggle<cr>
+nmap nt :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
+nmap wm :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
+nmap <F9> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
 "let g:defaultExplorer = 0
-nmap <silent> <F9> :WMToggle<cr>
-nmap <silent> <leader>wm :WMToggle<cr> 
+
 
 " netrw setting
 let g:netrw_winsize = 30
@@ -339,7 +350,6 @@ let g:pydiction_menu_height = 20
 
 " NERDTree setting
 "nmap <silent> <leader>nt :NERDTree<cr>
-nmap <silent> <leader>nt :WMToggle<cr>
 
 " Most Recently Used (MRU)
 nmap <silent> <leader>r :MRU<cr>
