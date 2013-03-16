@@ -333,8 +333,7 @@ endfunction
 function! NERDTree_IsValid()
     return 1
 endfunction 
-"nmap <silent> <leader>wm :WMToggle<cr> 
-"nmap <silent> <leader>nt :WMToggle<cr>
+let NERDTreeIgnore = ['\.pyc$']
 nmap nt :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
 nmap wm :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
 nmap <F9> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
@@ -388,5 +387,4 @@ let VCSCommandSVKExec='disabled no such executable'
 
 augroup filetypedetect
 	au! BufNewFile,BufRead *.as setf actionscript
-	au! BufNewFile,BufRead *.py setf python
 augroup END
