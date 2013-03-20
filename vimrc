@@ -325,7 +325,7 @@ let g:tlist_javascript_settings = 'javascript;f:function;c:class;o:object;m:meth
 
 " winManager setting 
 let g:NERDTree_title="[NERD Tree]" 
-let g:winManagerWindowLayout="NERDTree|TagList,BufExplorer" 
+let g:winManagerWindowLayout="NERDTree|TagList" 
 let g:winManagerWidth = 30 
 function! NERDTree_Start()
     exec 'NERDTree'
@@ -366,6 +366,7 @@ nmap <leader>fb :FufBuffer<cr>
 nmap <leader>ff :FufFile<cr>
 nmap <leader>fd :FufDir<cr>
 nmap <leader>fa :FufBookmark<cr>
+nmap tt :Template<cr> 
 
 
 
@@ -387,4 +388,34 @@ let VCSCommandSVKExec='disabled no such executable'
 
 augroup filetypedetect
 	au! BufNewFile,BufRead *.as setf actionscript
-augroup END
+augroup END 
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+call pathogen#infect()
