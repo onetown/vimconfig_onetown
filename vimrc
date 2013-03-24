@@ -419,3 +419,4 @@ let g:tagbar_type_go = {
 \ }
 
 call pathogen#infect()
+set cc=100
