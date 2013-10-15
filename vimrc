@@ -87,8 +87,31 @@ set fdm=marker
 if has("gui_running") || has("gui_macvim")
 	colorscheme yytextmate
 	let g:colors_name="yytextmate"
+	set columns=200
+	set lines=55
+	winpos 2 2 
+
+	let macvim_skip_cmd_opt_movement = 1
+	let macvim_hig_shift_movement = 1
+
+	set transparency=10
+	set guioptions-=T "egmrt
+	"set guioptions+=b 
+	
+	"macm File.New\ Tab						key=<D-T>
+	"macm File.Save<Tab>:w					key=<D-s>
+	"macm File.Save\ As\.\.\.<Tab>:sav		key=<D-S>
+	"macm Edit.Undo<Tab>u					key=<D-z> action=undo:
+	"macm Edit.Redo<Tab>^R					key=<D-Z> action=redo:
+	"macm Edit.Cut<Tab>"+x					key=<D-x> action=cut:
+	"macm Edit.Copy<Tab>"+y					key=<D-c> action=copy:
+	"macm Edit.Paste<Tab>"+gP				key=<D-v> action=paste:
+	"macm Edit.Select\ All<Tab>ggVG			key=<D-A> action=selectAll:
+	"macm Window.Toggle\ Full\ Screen\ Mode	key=<D-F>
+	"macm Window.Select\ Next\ Tab			key=<D-}>
+	"macm Window.Select\ Previous\ Tab		key=<D-{>
 else
-	colorscheme slate
+	colorscheme sonofobsidian 
 endif
 
 if MySys() == "mac"
@@ -111,37 +134,6 @@ set guitablabel=%t
 
 let g:javascript_enable_domhtmlcss=1
 let g:xml_use_xhtml = 1 "for xml.vim
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MacVim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has("gui_macvim")
-
-	set columns=171
-	set lines=58
-	winpos 52 42 
-
-	let macvim_skip_cmd_opt_movement = 1
-	let macvim_hig_shift_movement = 1
-
-	set transparency=10
-	set guioptions-=T "egmrt
-	"set guioptions+=b 
-	
-	macm File.New\ Tab						key=<D-T>
-	macm File.Save<Tab>:w					key=<D-s>
-	macm File.Save\ As\.\.\.<Tab>:sav		key=<D-S>
-	macm Edit.Undo<Tab>u					key=<D-z> action=undo:
-	macm Edit.Redo<Tab>^R					key=<D-Z> action=redo:
-	macm Edit.Cut<Tab>"+x					key=<D-x> action=cut:
-	macm Edit.Copy<Tab>"+y					key=<D-c> action=copy:
-	macm Edit.Paste<Tab>"+gP				key=<D-v> action=paste:
-	macm Edit.Select\ All<Tab>ggVG			key=<D-A> action=selectAll:
-	macm Window.Toggle\ Full\ Screen\ Mode	key=<D-F>
-	macm Window.Select\ Next\ Tab			key=<D-}>
-	macm Window.Select\ Previous\ Tab		key=<D-{>
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd
@@ -173,32 +165,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! GetMySession(spath, ssname)
-	if a:ssname == 0
-		let a:sname = ""
-	else
-		let a:sname = "-".a:ssname
-	endif
-	execute "source $".a:spath."/session".a:sname.".vim"
-	execute "rviminfo $".a:spath."/session".a:sname.".viminfo"
-	execute "echo \"Load Success\: $".a:spath."/session".a:sname.".vim\""
-endfunction
 
-function! SetMySession(spath, ssname)
-	if a:ssname == 0
-		let a:sname = ""
-	else
-		let a:sname = "-".a:ssname
-	endif
-	execute "cd $".a:spath
-	execute "mksession! $".a:spath."/session".a:sname.".vim"
-	execute "wviminfo! $".a:spath."/session".a:sname.".viminfo"
-	execute "echo \"Save Success\: $".a:spath."/session".a:sname.".vim\""
-endfunction
-" load session from path
-command! -nargs=+ LOAD call GetMySession(<f-args>) 
-" save session
-command! -nargs=+ SAVE call SetMySession(<f-args>) 
 
 
 " for make & debug
@@ -352,21 +319,12 @@ let g:pydiction_menu_height = 20
 
 " Most Recently Used (MRU)
 nmap <silent> <leader>r :MRU<cr>
-
-" FuzzyFinder setting
-"nmap <leader>fb :FuzzyFinderBuffer<cr>
-"nmap <leader>ff	:FuzzyFinderFile<cr>
-"nmap <leader>fd	:FuzzyFinderDir<cr>
-"nmap <leader>fe	:FuzzyFinderMruFile<cr>
-"nmap <leader>fc	:FuzzyFinderMruCmd<cr>
-"nmap <leader>fm	:FuzzyFinderBookmark<cr>
-""nmap <leader>ft	:FuzzyFinderTag<cr>
-"nmap <leader>ft	:FuzzyFinderTaggedFile<cr>
 nmap <leader>fb :FufBuffer<cr>
 nmap <leader>ff :FufFile<cr>
 nmap <leader>fd :FufDir<cr>
 nmap <leader>fa :FufBookmark<cr>
 nmap tt :Template<cr> 
+"imap ,/ </<C-X><C-O>
 
 
 
@@ -377,46 +335,9 @@ let g:NERDCommenterLeader="<leader>n" " change NERD_commenter.vim
 let VCSCommandSVKExec='disabled no such executable'
 
 
-" Use neocomplcache.
-"let g:NeoComplCache_EnableAtStartup = 1
-"" Use smartcase.
-"let g:NeoComplCache_SmartCase = 1
-"" Use camel case completion.
-"let g:NeoComplCache_EnableCamelCaseCompletion = 1
-"" Use underbar completion.
-"let g:NeoComplCache_EnableUnderbarCompletion = 1 
-
 augroup filetypedetect
 	au! BufNewFile,BufRead *.as setf actionscript
 augroup END 
 
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
-call pathogen#infect()
-set cc=100
+set cc=80

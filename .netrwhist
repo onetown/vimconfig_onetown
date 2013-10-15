@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/liangbo/Downloads/qingcheng/qingcheng/config/minigame'
 let g:netrw_dirhist_2='/opt/local/var/macports/build'
 let g:netrw_dirhist_3='/Users/liangbo/Desktop/repo/openstack/horizon/horizon/api'
 let g:netrw_dirhist_4='/private/var/lib/postfix'
 let g:netrw_dirhist_5='/Users/liangbo/Desktop/repo/vertical/bin'
+let g:netrw_dirhist_6='/Library/Java/Home'
+let g:netrw_dirhist_7='/Users/liangbo/Desktop/repo/pylucid/env/lib/python2.7/site-packages/PyLucid-1.4.3.0201-py2.7.egg/pylucid_project'

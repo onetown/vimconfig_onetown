@@ -15,8 +15,8 @@ endif
 if has("gui_running")
 	:hi Normal guifg=#f9f9f9 guibg=#010816
 	:hi Cursor guibg=Yellow
-	:hi Visual guibg=#336699 gui=none
-	:hi Pmenu guifg=#333333 guibg=#E3E3E3
+	:hi Visual guibg=#003366 gui=none
+	:hi Pmenu guifg=#336699 guibg=#E3E3E3
 	:hi PmenuSel guifg=#ffffff guibg=#0264A2
 	
 	":hi LineNr guifg=grey20
@@ -27,7 +27,7 @@ if has("gui_running")
 	:hi IncSearch guibg=black guifg=yellow 
 	:hi ModeMsg guifg=goldenrod
 	:hi MoreMsg guifg=SeaGreen
-	:hi NonText guifg=RoyalBlue guibg=#151825
+	:hi NonText guifg=RoyalBlue guibg=#010816
 	:hi Question guifg=springgreen
 	:hi Search guibg=#0099ff guifg=White
 	:hi SpecialKey guifg=#D3FE36
