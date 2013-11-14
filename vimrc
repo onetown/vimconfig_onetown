@@ -133,7 +133,10 @@ set guitablabel=%t
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:javascript_enable_domhtmlcss=1
-let g:xml_use_xhtml = 1 "for xml.vim
+let g:xml_use_xhtml = 1 "for xml.vim 
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd
