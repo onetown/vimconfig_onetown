@@ -1,7 +1,8 @@
 #!/usr/bin/env python 
 # -*- coding: UTF-8 -*-
 #
-# Copyright 2013 SOABER, Inc.
+# Copyright 2015 SOABER, Inc.
+# Author: onetown@gmail.com
 #
 
 if __name__ == '__main__':

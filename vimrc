@@ -116,7 +116,7 @@ endif
 
 if MySys() == "mac"
 	set guifont=Menlo:h12
-	set guifontwide=Hei_Regular:h12
+	"set guifontwide=Hei_Regular:h12
 elseif MySys() == "linux"
 	set guifont=Monospace
 endif
@@ -343,4 +343,32 @@ augroup filetypedetect
 augroup END 
 
 
-set cc=80
+set cc=80 
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }

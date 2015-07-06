@@ -173,14 +173,14 @@ endf
 
 " Session name command-line completion functions
 " ===============================================
-fun! g:gsession_cwd_completion(arglead,cmdline,pos)
+fun! s:gsession_cwd_completion(arglead,cmdline,pos)
   let items = s:get_cwd_sessionnames()
   cal map(items," substitute(v:val,'^.*__.*__','','g')")
   cal filter(items,"v:val =~ '^'.a:arglead")
   return items
 endf
 
-fun! g:gsession_global_completion(arglead,cmdline,pos)
+fun! s:gsession_global_completion(arglead,cmdline,pos)
   let items = s:get_global_sessionnames()
   cal map(items," substitute(v:val,'.*__GLOBAL__','','g')")
   cal filter(items,"v:val =~ '^'.a:arglead")
